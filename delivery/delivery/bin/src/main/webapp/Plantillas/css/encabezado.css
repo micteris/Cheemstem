@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+}
+
+.encabezado{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: whitesmoke;
+    position: sticky;
+	top: 0;
+    
+}
+.encabezado .address{
+    font-size: 20px;
+    
+}
+.titulo a{
+    display: flex;
+    justify-content: left;
+    height: 7em;
+}
+
+.caja i{
+    font-size: 20px;
+}
+.direccion{
+    border: 1px solid indianred;
+    color: indianred;
+    padding: 5px 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.util i,.usuario i{
+    font-size: 18px;
+    margin: 0 16px;
+    border: 1px solid crimson;
+    padding: 8px 16px;
+    color: crimson;
+    border-radius: 20px;
+    cursor: pointer;
+}
