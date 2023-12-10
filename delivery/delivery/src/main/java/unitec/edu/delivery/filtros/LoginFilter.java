@@ -3,7 +3,6 @@ package unitec.edu.delivery.filtros;
 import jakarta.servlet.Filter;
 import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import unitec.edu.delivery.modelos.Usuario;
 
 import java.io.IOException;
@@ -26,6 +25,7 @@ public class LoginFilter extends HttpFilter implements Filter {
     /**
 	 * 
 	 */
+	@SuppressWarnings("serial")
 	List<String> Permitidas = new ArrayList<String>() {
 		{
 			add("/login.jsp");
