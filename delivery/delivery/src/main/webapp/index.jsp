@@ -21,10 +21,10 @@
 		</div>
 		<main class="principal">
 				<c:forEach items="${listaEmpresa}" var="empresa">
-					<a href="/productos?empresa=${empresa.id }" >
+					<a href="/productos?empresa=${empresa.id}" >
 						<div class="item-card">
-							<img src="${empresa.imagen }">
-							<p class="item-name">${empresa.nombre }</p>
+							<img src="${empresa.imagen}">
+							<p class="item-name">${empresa.nombre}</p>
 						</div>
 					</a>
 				</c:forEach>

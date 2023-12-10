@@ -33,7 +33,7 @@ public class Usuario {
 	String correo;
 	@Column(name = "Usuario_Telefono")
 	String telefono;
-	@Column(name = "Usuario_imagen")
+	@Column(name = "Usuario_Photo")
 	String imagen;
 	@Column(name = "Usuario_User")
 	String usuario;
@@ -41,6 +41,16 @@ public class Usuario {
 	String pass;
 	@Column(name = "Usuario_Rol")
 	int rol;
+	
+	public Usuario(Integer id,String nombre,String direccion,String correo,String telefono,String imagen,int rol) {
+		this.id=id;
+		this.nombre=nombre;
+		this.direccion=direccion;
+		this.correo=correo;
+		this.telefono=telefono;
+		this.imagen=imagen;
+		this.rol=rol;
+	}
 	
 
 }

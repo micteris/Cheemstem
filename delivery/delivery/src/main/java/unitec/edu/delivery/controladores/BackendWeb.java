@@ -38,7 +38,7 @@ public class BackendWeb {
 			sesion.setAttribute("usuario", existe.get());
 			
 			if (existe.get().getRol()==2) {
-				List<Usuario> empresas = usuariodb.findByRol(1);
+				List<Usuario> empresas = usuariodb.findByRol1();
 				sesion.setAttribute("listaEmpresa", empresas);
 				return "redirect:index.jsp";
 			}
@@ -53,9 +53,7 @@ public class BackendWeb {
 	
 	@GetMapping("/productos")
 	public String productos(@RequestParam(name = "empresa") int id) {
-		
-		System.out.println(id);
-		
+				
 		return "productos";
 		
 	}
