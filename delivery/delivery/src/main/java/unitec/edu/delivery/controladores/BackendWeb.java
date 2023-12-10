@@ -10,13 +10,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpSession;
+import unitec.edu.delivery.modelos.Producto;
 import unitec.edu.delivery.modelos.Usuario;
+import unitec.edu.delivery.repositorio.ProductoRepositorio;
 import unitec.edu.delivery.repositorio.UsuarioRepositorio;
 
 @Controller
 public class BackendWeb {
 	@Autowired
 	UsuarioRepositorio usuariodb;
+	@Autowired
+	ProductoRepositorio productodb;
 	
 	@GetMapping("/")
 	public String login() {
@@ -53,7 +57,7 @@ public class BackendWeb {
 	
 	@GetMapping("/productos")
 	public String productos(@RequestParam(name = "empresa") int id) {
-				
+				List<Producto> prod = productodb.findByUsuario(usuariodb.findById(id).get()); 
 		return "productos";
 		
 	}
