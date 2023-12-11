@@ -12,7 +12,7 @@ import unitec.edu.delivery.modelos.Usuario;
 @Repository
 public interface ProductoRepositorio extends JpaRepository<Producto, Integer > {
 	
-	@Query("select p from Producto p where p.Usuario=:id")
+	@Query("select p from Producto p inner join Usuario u on p.usuario=u where p.usuario.id=:id")
     List<Producto> findByUsuario( @Param("id") Integer id);
     
 	
