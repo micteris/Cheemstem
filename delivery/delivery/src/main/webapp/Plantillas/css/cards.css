@@ -1,6 +1,6 @@
 .item-card{
     width: 180px;
-    height: 220px;
+    height: auto;
     padding: 10px;
     margin: 10px;
     display: inline-block;
@@ -54,4 +54,23 @@
 
 .item-name,.item-price{
         font-size: 16px;
+    }
+.cart-btn{
+    outline: none;
+    border: none;
+    background: crimson;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    bottom: 30px;
+    margin: 15px 0;
+    cursor: pointer;
+}
+.cart-btn{
+        font-size: 14px;
+        background: lightcoral;
+        padding: 8px 15px;
+        margin: auto;
     }

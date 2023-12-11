@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="ftm" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,22 +21,27 @@
 			<c:import url="./Plantillas/sidebar.html"></c:import>
 		</div>
 		<main class="principal">
-				<c:forEach items="${listaEmpresa}" var="empresa">
-					<a href="/productos?empresa=${empresa.id }" >
-						<div class="item-card item-card-producto">
+				<c:forEach items="${productos}" var="producto">
+						<div class="item-card item-card-producto" id="${producto.getId() }" >
 							<div class="card-top">
-							<i class="fa fa-star rating"> 4.3</i>
+							<i class="fa fa-star rating"> ${producto.getRating() }</i>
 							</div>
-							<img src="${empresa.imagen }">
-							<p class="item-name">${empresa.nombre }</p>
-							<p class="item-price">Precio : $ 13</p>
+							<img src="${producto.getImagen() }">
+							<p class="item-name">${producto.getNombre() }</p>
+							<p class="item-price">
+								<ftm:formatNumber type="CURRENCY" currencySymbol="Precio : lps ">
+								${producto.getPrecio()}</ftm:formatNumber> </p>
+							<button class=" fa fa-cart-plus cart-btn">add</button>
+							<button class="decrease-item">-</button>
+							<span>1</span>
+							<button class="increase-item">+</button>
 						</div>
-					</a>
 				</c:forEach>
 				
 
 		</main>
 
 	</section>
+	<script type="text/javascript" src="./Plantillas/js/cantidad.js"></script>
 </body>
 </html>

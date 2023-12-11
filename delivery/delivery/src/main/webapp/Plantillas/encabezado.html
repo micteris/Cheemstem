@@ -1,7 +1,7 @@
 <div class="fijo">
 	<header class="encabezado">
 	<div class="titulo">
-		<a href=""><img src="./Plantillas/recursos/foodie hunter.png" alt="Logo" /></a>
+		<a href="/index.jsp"><img src="./Plantillas/recursos/foodie hunter.png" alt="Logo" /></a>
 	</div>
 	<div class="caja">
 		<a href="">
@@ -9,16 +9,28 @@
 		</a>
 
 	</div>
-	<div class="util">
+	<form class="util" action="/carrito" method="post">
 		<a href=""><i class="fa fa-search"> Buscar</i></a>
 		<a href=""><i class="fa fa-tags"> Promociones</i></a>
-		<a href=""><i class="fa fa-cart-plus" id="cart-plus"> 0 Items</i></a>
-	</div>
+		<button type="submit" class="fa fa-cart-plus" id="cart-plus" >0 Items</button>
+		<input type="hidden"  value="" name="sesion" id="sesion">
+	</form>
 	<div class="usuario">
 		<a href=""><i class="fa fa-user-circle" id="usuario"> Usuario</i></a>
 
 	</div>
-
-
+	
+	<script type="text/javascript">
+	(()=>{
+	let orden = JSON.parse(sessionStorage.getItem("orden"))|| {}
+	const carrito = document.querySelector("#cart-plus")
+	const sesion = document.querySelector("#sesion")
+	sesion.value=sessionStorage.getItem("orden")
+	console.log(sesion.value)
+	carrito.innerHTML=" "+Object.keys(orden).length + " Items"
+	})()
+	
+	</script>
+	
 </header>
 </div>

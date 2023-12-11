@@ -35,9 +35,8 @@ public class Producto {
 	String  Nombre;
 	@Column(name = "Producto_Precio")
 	Float  Precio;
-	@ManyToOne(fetch = FetchType.LAZY )
-	@JoinColumn(name = "ID_Comercio" )	
-	Usuario  Usuario;
+	@Column(name = "ID_Comercio")
+	Integer  Usuario;
 	@Column(name = "Producto_Rating")
-	float Rating;
+	Float Rating;
 }

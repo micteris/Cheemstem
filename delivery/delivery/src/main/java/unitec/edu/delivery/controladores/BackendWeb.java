@@ -8,7 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
 import jakarta.servlet.http.HttpSession;
 import unitec.edu.delivery.modelos.Producto;
 import unitec.edu.delivery.modelos.Usuario;
@@ -56,11 +59,25 @@ public class BackendWeb {
 	}
 	
 	@GetMapping("/productos")
-	public String productos(@RequestParam(name = "empresa") int id) {
-				List<Producto> prod = productodb.findByUsuario(usuariodb.findById(id).get()); 
+	public String productos(@RequestParam(name = "empresa") Integer id
+			,Model modal) {
+		
+		List<Producto> prod = productodb.findByUsuario(id);
+		modal.addAttribute("productos", prod);
 		return "productos";
 		
 	}
+	
+
+	@PostMapping("/carrito")
+	public void carrito (
+			@RequestParam (name = "sesion") String orden
+			) {
+		
+		System.out.println(orden);
+	}
+			
+	
 	
 
 }

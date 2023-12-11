@@ -30,7 +30,7 @@ body{
     height: 7em;
 }
 
-.caja i{
+.caja i ,.caja button{
     font-size: 20px;
 }
 .direccion{
@@ -44,7 +44,7 @@ body{
     cursor: pointer;
 }
 
-.util i,.usuario i{
+.util i,.usuario i,.util button{
     font-size: 18px;
     margin: 0 16px;
     border: 1px solid crimson;
