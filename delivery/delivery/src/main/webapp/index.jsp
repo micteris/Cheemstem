@@ -16,9 +16,9 @@
 	<c:import url="./Plantillas/encabezado.html"></c:import>
 
 	<section class="lateral-flex">
-		<div class="sidebar">
-			<c:import url="./Plantillas/sidebar.html"></c:import>
-		</div>
+		<!--<div class="sidebar">-->
+			<!--<c:import url="./Plantillas/sidebar.html"></c:import>-->
+		<!--</div>-->
 		<main class="principal">
 				<c:forEach items="${listaEmpresa}" var="empresa">
 					<a href="/productos?empresa=${empresa.id}" >

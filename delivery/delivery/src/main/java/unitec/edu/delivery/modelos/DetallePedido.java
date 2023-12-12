@@ -34,8 +34,8 @@ public class DetallePedido {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Producto_ID")
 	Producto Producto;
-	@Column(name = "Descuento_ID")
-	Float descuento;
+	@Column(name = "Cantidad")
+	Integer Cantidad;
 	
 	
 

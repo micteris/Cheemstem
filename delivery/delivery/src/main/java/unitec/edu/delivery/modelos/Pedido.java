@@ -2,6 +2,7 @@ package unitec.edu.delivery.modelos;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -44,7 +45,7 @@ public class Pedido {
 	@Column(name = "Ubicacion")
 	String Ubicacion;
 	
-	@OneToMany(mappedBy = "Pedido_ID")
+	@OneToMany(mappedBy = "Pedido",cascade = CascadeType.ALL)
 	List<DetallePedido> detalle;
 	
 
