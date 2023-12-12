@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import jakarta.servlet.http.HttpSession;
 import unitec.edu.delivery.modelos.Producto;
 import unitec.edu.delivery.modelos.Usuario;
+import unitec.edu.delivery.repositorio.DetallePedidoRepositorio;
+import unitec.edu.delivery.repositorio.PedidoRepositorio;
 import unitec.edu.delivery.repositorio.ProductoRepositorio;
 import unitec.edu.delivery.repositorio.UsuarioRepositorio;
 
@@ -24,6 +26,10 @@ public class BackendWeb {
 	UsuarioRepositorio usuariodb;
 	@Autowired
 	ProductoRepositorio productodb;
+	@Autowired
+	PedidoRepositorio pedidodb;
+	@Autowired
+	DetallePedidoRepositorio detallepedidodb;
 	
 	@GetMapping("/")
 	public String login() {
