@@ -83,6 +83,11 @@ public class BackendWeb {
 		System.out.println(orden);
 	}
 			
+	@GetMapping("/Logout")
+	public String LogOut(HttpSession LogOut) {
+		LogOut.invalidate();
+		return "/login";
+	}
 	
 	
 

@@ -17,9 +17,9 @@
 	<c:import url="./Plantillas/encabezado.html"></c:import>
 
 	<section class="lateral-flex">
-		<div class="sidebar">
+		<!--  <div class="sidebar">
 			<c:import url="./Plantillas/sidebar.html"></c:import>
-		</div>
+		</div>-->
 		<main class="principal">
 				<c:forEach items="${productos}" var="producto">
 						<div class="item-card item-card-producto" id="${producto.getId() }" >
