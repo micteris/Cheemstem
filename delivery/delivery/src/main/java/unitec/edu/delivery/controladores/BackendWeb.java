@@ -1,6 +1,8 @@
 package unitec.edu.delivery.controladores;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.google.gson.Gson;
+
 import jakarta.servlet.http.HttpSession;
+import unitec.edu.delivery.modelos.DetallePedido;
 import unitec.edu.delivery.modelos.Producto;
 import unitec.edu.delivery.modelos.Usuario;
 import unitec.edu.delivery.repositorio.DetallePedidoRepositorio;
@@ -75,12 +80,24 @@ public class BackendWeb {
 	}
 	
 
+	@SuppressWarnings("unchecked")
 	@PostMapping("/carrito")
-	public void carrito (
+	public String carrito (
 			@RequestParam (name = "sesion") String orden
+			,HttpSession session
 			) {
+		Gson gson = new Gson();
+		Map<String, Double> ordenCantidad = gson.fromJson(orden, Map.class);
 		
-		System.out.println(orden);
+		List<DetallePedido> detalle = new ArrayList<DetallePedido>();
+		ordenCantidad.forEach((k,v)->{
+			detalle.add(new DetallePedido(productodb.findById(Integer.valueOf(k)).get(),(int) Math.round(v)));
+		});
+		
+		session.setAttribute("pedido", detalle);
+		System.out.println("Terminamos");
+		return "redirect:./ordenar.jsp?cantidad=" + ordenCantidad.keySet().size();
+		
 	}
 			
 	@GetMapping("/Logout")

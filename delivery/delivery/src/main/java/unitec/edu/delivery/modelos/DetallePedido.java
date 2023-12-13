@@ -37,6 +37,11 @@ public class DetallePedido {
 	@Column(name = "Cantidad")
 	Integer Cantidad;
 	
+	public DetallePedido(Producto producto,Integer cantidad) {
+		this.Producto=producto;
+		this.Cantidad=cantidad;
+	}
+	
 	
 
 }
