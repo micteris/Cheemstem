@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <div class="fijo">
 	<header class="encabezado">
 	<div class="titulo">
@@ -5,7 +7,7 @@
 	</div>
 	<div class="caja">
 		<a href="">
-			<i class="fa fa-map-marker direccion" id="direccion"> Ubicacion</i>
+			<i class="fa fa-map-marker direccion" id="direccion">${usuario.getDireccion()}</i>
 		</a>
 
 	</div>

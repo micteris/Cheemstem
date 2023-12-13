@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="./Plantillas/css/cards.css" />
 </head>
 <body>
-	<c:import url="./Plantillas/encabezado.html"></c:import>
+	<c:import url="./Plantillas/encabezado.jsp"></c:import>
 
 	<section class="lateral-flex">
 		<!--<div class="sidebar">-->
