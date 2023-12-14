@@ -76,7 +76,7 @@
 			</div>
 			
 			<section class="ocultar" id="formulario-pago">
-			<form action="">
+			<form action="/Procesar" method="post">
 			
 			
 			<button class="cart-btn" type="submit">Procesar Orden</button>

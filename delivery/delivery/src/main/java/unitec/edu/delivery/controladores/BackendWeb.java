@@ -1,5 +1,6 @@
 package unitec.edu.delivery.controladores;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -111,7 +112,7 @@ public class BackendWeb {
 	}
 	
 	@PostMapping("/Crearusuario")
-	public String postMethodName(@RequestParam (name = "Nombre") String Nombre,
+	public String CrearUsuario(@RequestParam (name = "Nombre") String Nombre,
 			@RequestParam (name = "Direccion") String Direccion,
 			@RequestParam (name = "Usuario") String Usuario,
 			@RequestParam (name = "Password") String Password,
@@ -124,6 +125,14 @@ public class BackendWeb {
 		
 		return "login";
 	}
+	
+	@PostMapping("/Procesar")
+	public String ProcesarOrden() {
+		//TODO: process POST request
+		
+		return "redirect:./index.jsp";
+	}
+	
 	
 
 }
