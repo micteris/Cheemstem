@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import com.google.gson.Gson;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.transaction.Transactional;
 import unitec.edu.delivery.modelos.DetallePedido;
 import unitec.edu.delivery.modelos.Producto;
 import unitec.edu.delivery.modelos.Usuario;
@@ -24,6 +26,8 @@ import unitec.edu.delivery.repositorio.DetallePedidoRepositorio;
 import unitec.edu.delivery.repositorio.PedidoRepositorio;
 import unitec.edu.delivery.repositorio.ProductoRepositorio;
 import unitec.edu.delivery.repositorio.UsuarioRepositorio;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class BackendWeb {
@@ -106,6 +110,20 @@ public class BackendWeb {
 		return "/login";
 	}
 	
+	@PostMapping("/Crearusuario")
+	public String postMethodName(@RequestParam (name = "Nombre") String Nombre,
+			@RequestParam (name = "Direccion") String Direccion,
+			@RequestParam (name = "Usuario") String Usuario,
+			@RequestParam (name = "Password") String Password,
+			@RequestParam (name = "Rol") Integer Rol,
+			@RequestParam (name = "Correo") String Correo,
+			@RequestParam (name = "Telefono") String Telefono,
+			@RequestParam (name = "Foto") String Foto) {
+		usuariodb.save(new Usuario(null, Nombre, Direccion, Correo, Telefono, Foto, Usuario, Password, Rol));
+		//TODO: process POST request
+		
+		return "login";
+	}
 	
 
 }

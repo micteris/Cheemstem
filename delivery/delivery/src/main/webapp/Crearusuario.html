@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registrar Usuario</title>
+<link rel="stylesheet" href="./Plantillas/css/login.css">
+<link rel="stylesheet" href="./Plantillas/css/Crear.css">
+</head>
+<body>
+	<form action="/Crearusuario" method="post" class="login">
+
+		<span class="card-title"> Registro de Usuarios</span> <br>
+		<br> <label for="Nombre">Nombre</label> <input
+			placeholder="Nombre" id="Nombre" type="text" class="validate"
+			name="Nombre"> <label for="Direccion">Direccion</label> <input
+			id="Direccion" type="text" class="validate" name="Direccion">
+
+		<label for="Usuario">Usuario</label> <input id="Usuario" type="text"
+			class="validate" name="Usuario"> <label for="Password">Password</label>
+		<input id="Password" type="password" class="validate" name="Password">
+		<label>Que tipo de usuario eres? </label> <select id="ROL" name="Rol">
+			<option value="" disabled selected>Seleccione una opcion</option>
+			<option value="1">Local</option>
+			<option value="2">Usuario</option>
+			<option value="3">Motorista</option>
+		</select> <label for="Correo">Correo</label> <input id="Correo" type="email"
+			class="validate" name="Correo"> <label for="Telefono">Telefono</label>
+		<input id="Telefono" type="number" class="validate" name="Telefono">
+		<label for="Foto">Foto</label> <input id="Foto" type="text"
+			class="validate" name="Foto">
+
+		<button class="waves-effect waves-light btn" type="submit"
+			id="btnGuardar">Guardar</button>
+
+	</form>
+</body>
+</html>

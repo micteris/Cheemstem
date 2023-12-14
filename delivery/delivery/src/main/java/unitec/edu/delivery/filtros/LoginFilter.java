@@ -32,6 +32,9 @@ public class LoginFilter extends HttpFilter implements Filter {
 			add("/");
 			add("/ingresar");
 			add("/Plantillas/css/login.css");
+			add("/Crearusuario.html");
+			add("/Crearusuario"); 	
+			add("/Plantillas/css/Crear.css");
 			
 		}
 	};

@@ -32,7 +32,7 @@
 							<th>Item</th>
 							<th>Nombre</th>
 							<th>Cantidad</th>
-							<th>Cantidad</th>
+							<th>Precio</th>
 						</tr>					
 					</thead>
 					<tbody id="table-body">

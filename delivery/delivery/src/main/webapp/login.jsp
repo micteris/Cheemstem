@@ -16,7 +16,7 @@
           <input id="Password" type="password" name="Password" placeholder="Password" required="required" />
           <input id="ingresar" class="btn btn-primary btn-block btn-large" type="submit" value="Login">
           
-       
+       	  <a class="Registrar" href="./Crearusuario.html">Crear Usuario</a>
       </form>
 
 </body>
