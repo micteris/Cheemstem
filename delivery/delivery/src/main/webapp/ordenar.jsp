@@ -33,6 +33,7 @@
 							<th>Nombre</th>
 							<th>Cantidad</th>
 							<th>Precio</th>
+							<th>Remover Elemento</th>
 						</tr>					
 					</thead>
 					<tbody id="table-body">
@@ -55,7 +56,7 @@
 								 </ftm:formatNumber></td>				
 								<c:set var="cantidad" value="${cantidad+1 }"/>
 								<c:set var="subtotal" value="${subtotal+p.getProducto().getPrecio()*p.getCantidad() }"/>
-								
+								<td><button class="decrease-item fa fa-trash fa-5x" ></button><td>
 						
 							</tr>
 						</c:forEach>
@@ -75,7 +76,11 @@
 			</div>
 			
 			<section class="ocultar" id="formulario-pago">
+			<form action="">
 			
+			
+			<button class="cart-btn" type="submit">Procesar Orden</button>
+			</form>
 			formulario de pago
 			
 			</section>
