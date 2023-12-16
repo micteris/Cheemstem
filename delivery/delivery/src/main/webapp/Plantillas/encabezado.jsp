@@ -11,10 +11,11 @@
 		</a>
 
 	</div>
-	<form class="util" action="/carrito" method="post">
+	<form class="util" action="/carrito" method="post" id="formularioCarrito">
 		<a href=""><i class="fa fa-info-circle">Acerca de</i></a>
+		<a href="./ListarPedido"><i class="fa fa-motorcycle">Mis Pedidos</i></a>
 		<button type="submit" class="fa fa-cart-plus" id="cart-plus" >0 Items</button>
-		<input type="hidden"  value="" name="sesion" id="sesion">
+		<input type="hidden"  value="" name="sesion" required="required" id="sesion">
 	</form>
 	<div class="usuario">
 		<a href="/Logout"><i class="fa fa-user-circle" id="usuario"> Log Out</i></a>

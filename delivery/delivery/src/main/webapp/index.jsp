@@ -14,7 +14,9 @@
 </head>
 <body>
 	<c:import url="./Plantillas/encabezado.jsp"></c:import>
-
+	<c:if test="${not empty carrito}">
+	<script type="text/javascript">alert("No se encontro elementos en la orden")</script>
+	</c:if>
 	<section class="lateral-flex">
 		<!--<div class="sidebar">-->
 			<!--<c:import url="./Plantillas/sidebar.html"></c:import>-->
@@ -29,9 +31,13 @@
 					</a>
 				</c:forEach>
 				
+				
 
 		</main>
 
 	</section>
+	
+	
+	
 </body>
 </html>

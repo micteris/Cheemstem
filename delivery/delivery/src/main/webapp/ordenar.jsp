@@ -53,7 +53,7 @@
 								<c:set var="cantidad" value="${cantidad+1 }" />
 								<c:set var="subtotal"
 									value="${subtotal+p.getProducto().getPrecio()*p.getCantidad() }" />
-								<td><button class="decrease-item fa fa-trash fa-5x"></button>
+								<td><button class="decrease-item fa fa-trash fa-5x remover" id="${p.getProducto().getId()}"></button>
 								<td>
 							</tr>
 						</c:forEach>
@@ -78,32 +78,23 @@
 					</p>
 					<button class="cart-btn">ORDENAR</button>
 				</div>
-
 			</div>
 
-			<section class="ocultar" id="formulario-pago">
-				<form action="/Procesar" method="post">	<span class="card-title"> Datos de tarjeta</span>
-				<br> <br> 
-				<label for="Titular">Titular de la tarjeta</label> <br> 
-				<input placeholder="Nombre del titular de la tarjeta" id="Titular" type="text" class="validate" name="Titular"> <br> 
+			<section class="ocultar" id="formulario-pago" >
+				<form action="/Procesar" method="post"  class="tarjeta" id="formularioPagar">	<p class="cart-title"> Datos de tarjeta</p>
+				<label for="Titular">Titular de la tarjeta</label> 
+				<input placeholder="Nombre del titular de la tarjeta" id="Titular" type="text" class="validate" name="Titular" required="required"> <br> 
 				
-				<label for="Fecha">Fecha de caducidad</label> <br> 
-				<input placeholder="mm/yyyy" id="Fecha" type="text" class="validate" name="Fecha" pattern="\d{1,2}/\d{4}"> <br> 
+				<label for="Fecha">Fecha de caducidad</label> 
+				<input placeholder="mm/yyyy" id="Fecha" type="month" class="validate" name="Fecha" required="required"> <br> 
 				
-				<label for="Codigo">Codigo De Seguridad CVV2</label><br>
-				<input placeholder="* * *" id="Codigo" type="text" class="validate" name="Codigo" pattern="[0-9]{3}"> <br>
-				
-				<label for=""></label>
-				<input placeholder="" id="" type="text" class="" name="" pattern="">
-				
-			
-
-
-
-
-					<button class="cart-btn" type="submit">Procesar Orden</button>
+				<label for="Codigo">Codigo De Seguridad CVV2</label>
+				<input placeholder="* * *" id="Codigo" type="text" class="validate" name="Codigo" pattern="[0-9]{3}" required="required"> <br>
+				<input type="hidden" name="subtotal" value="${subtotal }">
+				<input type="hidden" name="importe" value="${importe }">
+				<input type="hidden" name="total" value="${total }">
+				<button class="cart-btn" type="submit">Procesar Orden</button>
 				</form>
-				formulario de pago
 
 			</section>
 

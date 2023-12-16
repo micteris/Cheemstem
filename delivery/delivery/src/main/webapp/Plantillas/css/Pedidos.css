@@ -1,0 +1,6 @@
+.item-card{
+	width: 300px;
+	text-align: center;
+	cursor: not-allowed;
+	background-color: skyblue;
+}

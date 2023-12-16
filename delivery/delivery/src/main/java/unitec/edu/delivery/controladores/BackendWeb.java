@@ -1,33 +1,30 @@
 package unitec.edu.delivery.controladores;
 
-import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.google.gson.Gson;
 
 import jakarta.servlet.http.HttpSession;
-import jakarta.transaction.Transactional;
 import unitec.edu.delivery.modelos.DetallePedido;
+import unitec.edu.delivery.modelos.Pedido;
 import unitec.edu.delivery.modelos.Producto;
 import unitec.edu.delivery.modelos.Usuario;
 import unitec.edu.delivery.repositorio.DetallePedidoRepositorio;
 import unitec.edu.delivery.repositorio.PedidoRepositorio;
 import unitec.edu.delivery.repositorio.ProductoRepositorio;
 import unitec.edu.delivery.repositorio.UsuarioRepositorio;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Controller
@@ -90,18 +87,23 @@ public class BackendWeb {
 	public String carrito (
 			@RequestParam (name = "sesion") String orden
 			,HttpSession session
+			,Model modal
 			) {
 		Gson gson = new Gson();
 		Map<String, Double> ordenCantidad = gson.fromJson(orden, Map.class);
 		
+		if (ordenCantidad !=null) {
 		List<DetallePedido> detalle = new ArrayList<DetallePedido>();
 		ordenCantidad.forEach((k,v)->{
 			detalle.add(new DetallePedido(productodb.findById(Integer.valueOf(k)).get(),(int) Math.round(v)));
 		});
 		
 		session.setAttribute("pedido", detalle);
-		System.out.println("Terminamos");
 		return "redirect:./ordenar.jsp?cantidad=" + ordenCantidad.keySet().size();
+		}else {
+			modal.addAttribute("carrito", 0);
+			return "index";
+		}
 		
 	}
 			
@@ -127,10 +129,49 @@ public class BackendWeb {
 	}
 	
 	@PostMapping("/Procesar")
-	public String ProcesarOrden() {
+	public String ProcesarOrden(
+			@RequestParam(name = "subtotal") float subtotal,
+			@RequestParam(name = "total") float total,
+			@SessionAttribute(name = "pedido") List<DetallePedido> detalle,
+			@SessionAttribute(name = "usuario") Usuario usuario
+			,HttpSession session
+			) {
+		
+			Usuario repartidor = usuariodb.findbyRepartidor(PageRequest.of(0, 1));
+			
+		
+			Pedido pedido = new Pedido(null, subtotal, total, usuario, repartidor, usuario.getDireccion(), 1);
+			
+			pedido=pedidodb.save(pedido);
+			
+			System.out.println("Creo el pedido");
+			
+			for (DetallePedido detallePedido : detalle) {
+			
+				detallePedido.setPedido(pedido);
+				detallePedido= detallepedidodb.save(detallePedido);
+				
+			}
+			
+			session.removeAttribute("pedido");
+			
+			
 		//TODO: process POST request
 		
 		return "redirect:./index.jsp";
+	}
+	
+	@GetMapping("ListarPedido")
+	public String ListarPedido(
+			Model modal,
+			@SessionAttribute(name = "usuario") Usuario usuario
+			) {
+		
+		List<Pedido> pedido = pedidodb.findByCliente(usuario);
+		modal.addAttribute("listaPedido", pedido);
+		
+		return "listarPedidos";
+		
 	}
 	
 	

@@ -2,7 +2,7 @@ package unitec.edu.delivery.repositorio;
 
 import java.util.List;
 import java.util.Optional;
-
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -20,5 +20,9 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Integer>{
 	@Query("select new unitec.edu.delivery.modelos.Usuario(u.id,u.nombre,u.direccion,u.correo,u.telefono,u.imagen,u.rol) "
 			+ "from Usuario u where u.rol=1")
 	List<Usuario> findByRol1();
+	
+	@Query("select new unitec.edu.delivery.modelos.Usuario(u.id,u.nombre,u.direccion,u.correo,u.telefono,u.imagen,u.rol) "
+			+ "from Usuario u where u.rol=3 order by newid()")
+	Usuario findbyRepartidor(PageRequest pageRequest);
 
 }

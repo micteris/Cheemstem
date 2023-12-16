@@ -16,30 +16,33 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "DetallePedido")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
+@Table(name = "detalle_pedido")
 public class DetallePedido {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_DetallePedido")
 	Integer id;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER )
 	@JoinColumn(name = "Pedido_ID")
-	Pedido Pedido;
-	@ManyToOne(fetch = FetchType.LAZY)
+	Pedido pedido;
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Producto_ID")
 	Producto Producto;
 	@Column(name = "Cantidad")
 	Integer Cantidad;
+	@Column(name = "estado")
+	Integer estado;
 	
 	public DetallePedido(Producto producto,Integer cantidad) {
 		this.Producto=producto;
 		this.Cantidad=cantidad;
+		this.estado=1;
 	}
 	
 	

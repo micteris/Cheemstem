@@ -44,9 +44,8 @@ public class Pedido {
 	Usuario repartidor;
 	@Column(name = "Ubicacion")
 	String Ubicacion;
-	
-	@OneToMany(mappedBy = "Pedido",cascade = CascadeType.ALL)
-	List<DetallePedido> detalle;
+	@Column(name = "estado")
+	Integer estado;
 	
 
 }
