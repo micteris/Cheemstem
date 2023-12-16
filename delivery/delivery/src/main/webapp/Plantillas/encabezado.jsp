@@ -3,7 +3,7 @@
 <div class="fijo">
 	<header class="encabezado">
 	<div class="titulo">
-		<a href="/index.jsp"><img src="./Plantillas/recursos/foodie hunter.png" alt="Logo" /></a>
+		<a href="/index.jsp"><img src="./Plantillas/recursos/usuario-removebg-preview.png" alt="Logo" /></a>
 	</div>
 	<div class="caja">
 		<a href="">
@@ -12,7 +12,7 @@
 
 	</div>
 	<form class="util" action="/carrito" method="post" id="formularioCarrito">
-		<a href=""><i class="fa fa-info-circle">Acerca de</i></a>
+		<a href="/Sobre.jsp"><i class="fa fa-info-circle">Acerca de</i></a>
 		<a href="./ListarPedido"><i class="fa fa-motorcycle">Mis Pedidos</i></a>
 		<button type="submit" class="fa fa-cart-plus" id="cart-plus" >0 Items</button>
 		<input type="hidden"  value="" name="sesion" required="required" id="sesion">

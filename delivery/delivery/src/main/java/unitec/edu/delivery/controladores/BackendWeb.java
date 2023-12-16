@@ -173,6 +173,12 @@ public class BackendWeb {
 		return "listarPedidos";
 		
 	}
+	@GetMapping("Sobre")
+	public String Sobre() {
+		
+		return  Sobre();
+	}
+	
 	
 	
 
