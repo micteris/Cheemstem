@@ -13,12 +13,15 @@
 </head>
 <body>
 	<c:if test="${usuario.getRol()==2}">
-	<c:import url="./Plantillas/encabezado.jsp"></c:import>
+		<c:import url="./Plantillas/encabezado.jsp"></c:import>
 	</c:if>
-		<c:if test="${usuario.getRol()==1}">
-	<c:import url="./Plantillas/encabezadocomercio.jsp"></c:import>
+	<c:if test="${usuario.getRol()==1}">
+		<c:import url="./Plantillas/encabezadocomercio.jsp"></c:import>
 	</c:if>
-	
+	<c:if test="${usuario.getRol()==3}">
+		<c:import url="./Plantillas/encabezadomotorista.jsp"></c:import>
+	</c:if>
+
 	<header>
 		<h1>Bienvenido a Cheemstem</h1>
 	</header>
