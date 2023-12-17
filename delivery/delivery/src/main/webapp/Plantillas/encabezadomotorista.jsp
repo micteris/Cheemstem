@@ -3,14 +3,15 @@
 <div class="fijo">
 	<header class="encabezado">
 	<div class="titulo">
-		<a href="/index"><img src="./Plantillas/recursos/Comercio.png" alt="Logo" /></a>
+		<a href="/index"><img src="./Plantillas/recursos/motorista.png" alt="Logo" /></a>
 	</div>
 	<div class="caja">
 
 	</div>
 		<div class="util">
 			<a href="/Sobre.jsp"><i class="fa fa-info-circle">Acerca de</i></a>
-			<a href="./catalogo"><i class="fa fa-product-hunt">Catalogo de productos</i></a>
+			<a href="./catalogo"><i class="fa fa-product-hunt">Recolectar</i></a>
+			<a href="./catalogo"><i class="fa fa-product-hunt">Entregar</i></a>
 		</div>
 		
 	<div class="usuario">
