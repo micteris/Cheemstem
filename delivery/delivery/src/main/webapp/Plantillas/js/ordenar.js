@@ -1,6 +1,6 @@
 (()=>{
 	
-	const ordenar = document.querySelector(".cart-btn")
+	const ordenar = document.querySelector("#desplegarFormaPago")
 	
 	const remover = document.querySelectorAll(".remover")
 	const formularioSubmit =document.querySelector("#formularioPagar")

@@ -26,12 +26,12 @@ public class DetallePedido {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_DetallePedido")
+	@Column(name="ID_DetallePedido")
 	Integer id;
-	@ManyToOne(fetch = FetchType.EAGER )
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Pedido_ID")
 	Pedido pedido;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne (fetch = FetchType.EAGER)
 	@JoinColumn(name = "Producto_ID")
 	Producto Producto;
 	@Column(name = "Cantidad")
@@ -43,6 +43,14 @@ public class DetallePedido {
 		this.Producto=producto;
 		this.Cantidad=cantidad;
 		this.estado=1;
+	}
+	
+	public DetallePedido(Integer id,Pedido pedido, Producto producto,Integer cantidad) {
+		this.id=id;
+		this.pedido=pedido;
+		this.Producto=producto;
+		this.Cantidad=cantidad;
+		
 	}
 	
 	

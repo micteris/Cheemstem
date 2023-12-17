@@ -44,35 +44,46 @@ public class BackendWeb {
 		return "login";
 		
 	}
+	
+	@GetMapping("/index")
+	public String index(
+			@SessionAttribute("usuario") Optional<Usuario> usuario,
+			HttpSession sesion
+			) {
+		
+		if (usuario.get().getRol()==2) {
+			List<Usuario> empresas = usuariodb.findByRol1();
+			sesion.setAttribute("listaEmpresa", empresas);
+			return "index";
+		}else if (usuario.get().getRol()==1) {
+			
+			List<DetallePedido> pendientes = detallepedidodb.FindByPendientes(usuario.get().getId());
+			
+			sesion.setAttribute("pendientes", pendientes);
+			
+			return "indexcomercio";
+			
+		}
+		return "";
+		
+	}
+	
 	@PostMapping("/ingresar")
 	public String ingresar(
 			
 			@RequestParam("Usuario") String usuario,
 			@RequestParam("Password") String pass,
-			 HttpSession sesion,
-			 Model model
+			 HttpSession sesion
 			) {
 		Optional<Usuario> existe = usuariodb.findFirst1ByUsuarioAndPass(usuario,pass);
 		
 		if (existe.isPresent()) {
 			sesion.setAttribute("usuario", existe.get());
-			
-			if (existe.get().getRol()==2) {
-				List<Usuario> empresas = usuariodb.findByRol1();
-				sesion.setAttribute("listaEmpresa", empresas);
-				return "redirect:index.jsp";
-			}else if (existe.get().getRol()==1) {
-				
-				return "redirect:indexcomercio.jsp";
-				
-			}
-			return "";
-			
 		}else {
 			return "redirect:login.jsp";
 		}
 		
-		
+		return "redirect:./index";
 	}
 	
 	@GetMapping("/productos")
@@ -162,7 +173,7 @@ public class BackendWeb {
 			
 		//TODO: process POST request
 		
-		return "redirect:./index.jsp";
+		return "redirect:./index";
 	}
 	
 	@GetMapping("ListarPedido")

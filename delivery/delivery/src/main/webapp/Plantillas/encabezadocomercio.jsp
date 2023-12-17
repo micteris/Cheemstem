@@ -3,7 +3,7 @@
 <div class="fijo">
 	<header class="encabezado">
 	<div class="titulo">
-		<a href="/indexcomercio.jsp"><img src="./Plantillas/recursos/usuario-removebg-preview.png" alt="Logo" /></a>
+		<a href="/index"><img src="./Plantillas/recursos/usuario-removebg-preview.png" alt="Logo" /></a>
 	</div>
 	<div class="caja">
 

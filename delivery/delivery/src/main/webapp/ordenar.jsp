@@ -76,7 +76,7 @@
 						Total:
 						<ftm:formatNumber type="CURRENCY" currencySymbol="lps ">${total }</ftm:formatNumber>
 					</p>
-					<button class="cart-btn">ORDENAR</button>
+					<button class="cart-btn" id="desplegarFormaPago">ORDENAR</button>
 				</div>
 			</div>
 
