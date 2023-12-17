@@ -53,6 +53,11 @@ public class DetallePedido {
 		
 	}
 	
+	public DetallePedido(Producto producto,Pedido pedido,Integer cantidad) {
+		this.Producto=producto;
+		this.pedido=pedido;
+	}
+	
 	
 
 }

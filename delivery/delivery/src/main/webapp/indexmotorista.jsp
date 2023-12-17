@@ -18,22 +18,20 @@
 
 		<main class="principal">
 		
-		<!--  <c:forEach items="${pendientes}" var="pendiente">
+		<c:forEach items="${PedidosRepartir}" var="pendiente">
 						<div class="item-card" id="${pendiente.getId()}">
-							<img src="${pendiente.getProducto().getImagen()}">
-							<p class="item-name">${pendiente.getProducto().getNombre()}</p>
-							<p class="item-name">Pedido Numero: ${pendiente.getPedido().getId()}</p>
-							<p class="item-name">Cantidad: ${pendiente.getCantidad()}</p>
+							<img src="${pendiente.getRepartidor()}">
+							<p class="item-name">${pendiente.getRepartidor().getNombre()}</p>
+							<p class="item-name">Pedido Numero: ${pendiente.getId()}</p>
 							<select disabled="disabled">
-								 <option id="1" selected="selected" value="1">Solicitado</option>
-								<option id="2"  value="2">Preparado</option>
-								<option id="3"   value="3">Recolectado</option>
-								<option id="4"  value="4">Entregado</option>
+								 <option id="1" <c:if test="${pendiente.getEstado()==1 }">selected="selected"</c:if>  value="1">Solicitado</option>
+								<option id="2" <c:if test="${pendiente.getEstado()==2 }">selected="selected"</c:if>   value="2">Preparado</option>
+								<option id="3"  <c:if test="${pendiente.getEstado()==3 }">selected="selected"</c:if>  value="3">Recolectado</option>
+								<option id="4" <c:if test="${pendiente.getEstado()==4 }">selected="selected"</c:if>  value="4">Entregado</option>
 							</select>
-							<a href="./estado?id=${pendiente.getId()}&estado=2"><button class=" fa fa-cutlery cart-btn"> Preparado</button></a>
 							
 						</div>
-				</c:forEach>	 -->	
+				</c:forEach>	
 		
 				
 		</main>

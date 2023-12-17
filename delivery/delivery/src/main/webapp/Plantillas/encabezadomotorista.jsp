@@ -11,7 +11,7 @@
 		<div class="util">
 			<a href="/Sobre.jsp"><i class="fa fa-info-circle">Acerca de</i></a>
 			<a href="./recolectar"><i class="fa fa-shopping-basket"> Recolectar</i></a>
-			<a href="./entregar"><i class="fa fa-gift"> ntregar</i></a>
+			<a href="./entregar"><i class="fa fa-gift"> Entregar</i></a>
 		</div>
 		
 	<div class="usuario">

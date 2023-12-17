@@ -60,7 +60,9 @@ public class BackendWeb {
 			return "indexcomercio";
 
 		} else if (usuario.get().getRol() == 3) {
-
+			
+			List<Pedido> pedido = pedidodb.findbyRepartidor(usuario.get().getId());
+			sesion.setAttribute("PedidosRepartir", pedido);
 			return "indexmotorista";
 
 		}
