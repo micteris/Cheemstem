@@ -16,3 +16,22 @@
     font-weight: bold;
     font-family: "Open Sans", sans-serif;
   }
+  
+  h5{
+    color: crimson;
+    text-shadow: 0 0 10px whitesmoke;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+  }
+.prev{
+	position:absolute; 
+	left: 75%;
+}
+#previa{
+	border:0.1px solid;
+	
+	
+}

@@ -20,7 +20,7 @@
 		
 		<c:forEach items="${PedidosRepartir}" var="pendiente">
 						<div class="item-card" id="${pendiente.getId()}">
-							<img src="${pendiente.getRepartidor()}">
+							<img src="${pendiente.getRepartidor().getImagen()}">
 							<p class="item-name">${pendiente.getRepartidor().getNombre()}</p>
 							<p class="item-name">Pedido Numero: ${pendiente.getId()}</p>
 							<select disabled="disabled">
