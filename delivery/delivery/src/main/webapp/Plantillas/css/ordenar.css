@@ -124,3 +124,8 @@ input, select {
 	justify-content: center;
 	
 }
+
+.vistaPrevia{
+	display: flex;
+	justify-content: center;
+}

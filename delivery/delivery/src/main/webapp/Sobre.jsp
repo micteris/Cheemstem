@@ -9,10 +9,16 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./Plantillas/css/plantilla-menus.css" />
+<link rel="stylesheet" href="./Plantillas/css/sobrenosotros.css" />
 </head>
 <body>
-
+	<c:if test="${usuario.getRol()==2}">
 	<c:import url="./Plantillas/encabezado.jsp"></c:import>
+	</c:if>
+		<c:if test="${usuario.getRol()==1}">
+	<c:import url="./Plantillas/encabezadocomercio.jsp"></c:import>
+	</c:if>
+	
 	<header>
 		<h1>Bienvenido a Cheemstem</h1>
 	</header>

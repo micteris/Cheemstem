@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="ftm"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,7 +28,9 @@
 							<p class="item-name">Repartidor: ${pedido.getRepartidor().getNombre()}</p>
 							<p class="item-name">Tel: ${pedido.getRepartidor().getTelefono()}</p>
 							<p class="item-name">Pedido Numero: ${pedido.getId()}</p>
-							<p class="item-name">Total: ${pedido.getTotal()}</p>
+							<p class="item-name">Total:
+							<ftm:formatNumber type="CURRENCY" currencySymbol="lps ">${pedido.getTotal()}</ftm:formatNumber>
+							  </p>
 							<p class="item-name">Ubicacion: ${pedido.getUbicacion()}</p>
 							<select disabled="disabled">
 								 <option id="1" <c:if test="${pedido.getEstado()==1 }">selected="selected"</c:if>  value="1">Solicitado</option>

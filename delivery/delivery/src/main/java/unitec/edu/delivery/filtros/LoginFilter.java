@@ -53,8 +53,10 @@ public class LoginFilter extends HttpFilter implements Filter {
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 			
 		}
-		else if (usuario !=null && Permitidas.contains(ruta) ) {
+		else if (usuario !=null && Permitidas.contains(ruta) && usuario.getRol()==2 ) {
 			request.getRequestDispatcher("./index.jsp").forward(request, response);
+		}else if (usuario !=null && Permitidas.contains(ruta) && usuario.getRol()==1 ) {
+			request.getRequestDispatcher("./indexcomercio.jsp").forward(request, response);
 		}
 		else {
 			chain.doFilter(request, response);

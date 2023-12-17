@@ -53,7 +53,7 @@
 								<c:set var="cantidad" value="${cantidad+1 }" />
 								<c:set var="subtotal"
 									value="${subtotal+p.getProducto().getPrecio()*p.getCantidad() }" />
-								<td><button class="decrease-item fa fa-trash fa-5x remover" id="${p.getProducto().getId()}"></button>
+								<td><button class="cart-btn fa fa-trash fa-5x remover" id="${p.getProducto().getId()}"></button>
 								<td>
 							</tr>
 						</c:forEach>

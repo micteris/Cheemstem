@@ -61,8 +61,12 @@ public class BackendWeb {
 				List<Usuario> empresas = usuariodb.findByRol1();
 				sesion.setAttribute("listaEmpresa", empresas);
 				return "redirect:index.jsp";
+			}else if (existe.get().getRol()==1) {
+				
+				return "redirect:indexcomercio.jsp";
+				
 			}
-			return "redirect:index.jsp";
+			return "";
 			
 		}else {
 			return "redirect:login.jsp";
