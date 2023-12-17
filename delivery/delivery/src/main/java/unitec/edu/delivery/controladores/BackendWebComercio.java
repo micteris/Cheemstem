@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
-
-import jakarta.servlet.http.HttpSession;
 import unitec.edu.delivery.modelos.DetallePedido;
 import unitec.edu.delivery.modelos.Pedido;
 import unitec.edu.delivery.modelos.Producto;
