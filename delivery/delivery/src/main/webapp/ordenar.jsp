@@ -85,6 +85,9 @@
 				<label for="Titular">Titular de la tarjeta</label> 
 				<input placeholder="Nombre del titular de la tarjeta" id="Titular" type="text" class="validate" name="Titular" required="required"> <br> 
 				
+				<label for="Titular">Numero de tarjeta</label> 
+				<input placeholder="Numero de tarjeta" id="Titular" type="text" class="validate" name="Titular" required="required"> <br> 
+				
 				<label for="Fecha">Fecha de caducidad</label> 
 				<input placeholder="mm/yyyy" id="Fecha" type="month" class="validate" name="Fecha" required="required"> <br> 
 				
